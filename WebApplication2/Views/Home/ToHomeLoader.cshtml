@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = "Loading";
+    Layout = "Layout2LoadingPage";
+}
+
+
+<div id="loader-container">
+    <div class="spinner-border text-danger" style="width: 10rem; height: 10rem" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Show the loader
+        $("#loader-container").show();
+
+        // Hide the loader after 3 seconds
+        setTimeout(function () {
+            $("#loader-container").hide();
+            window.location.href = "@Url.Action("Index", "Home")";
+
+        }, 3000);
+    });
+</script>
+
+
+@*
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Show loader on Ajax start
+        $(document).ready(function () {
+            $("#loader-container").show();
+        });
+
+        // Hide loaderafter 3 seconds
+      setTimeout(function () {
+            $("#loader-container").hide();
+        }),3000;
+    });
+</script>*@
